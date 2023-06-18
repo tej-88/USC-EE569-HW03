@@ -1,7 +1,7 @@
-CC = gcc
+CC = g++
 
-stucki:
-	$(CC) ./main.cc ./warp.cc -o ./stucki -lm
+warp:
+	$(CC) ./main.cc ./warp.cc -o ./warp
 
 clean:
 	rm ./warp

@@ -1,5 +1,5 @@
-#ifndef WARP_HH
-#define WARP_HH
+#ifndef WARP_HPP
+#define WARP_HPP
 
 #include <vector>
 #include <string>
@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <utility>
+#include <algorithm>
 
 #define MAX_INTENSITY 255
 #define MIN_INTENSITY 0
@@ -36,6 +37,7 @@ class Image {
 
 byte float_to_byte(float intensity);
 
+std::string get_image_filename(const std::string &full_path);
 
 std::pair<float, float> pixel_to_cartesian(const std::pair<float, float> &point, int J);
 std::pair<float, float> cartesian_to_pixel(const std::pair<float, float> &point, int J);

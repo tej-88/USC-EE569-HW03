@@ -86,6 +86,22 @@ byte float_to_byte(float intensity) {
     }
 }
 
+std::string get_image_filename(const std::string &full_path) {
+    std::string filename;
+    
+    for (size_t i = full_path.size() - 1; i >= 0; i--){
+        if (full_path[i] == '/') {
+            break;
+        }
+        else {
+            filename.push_back(full_path[i]);
+        }
+    }
+    
+    std::reverse(filename.begin(), filename.end());
+    return filename;
+}
+
 std::pair<float, float> pixel_to_cartesian(const std::pair<float, float> &point, int J) {
     float j = point.first;
     float k = point.second;
@@ -119,7 +135,7 @@ std::pair<float, float> to_standard_range(const std::pair<float, float> &point, 
     return result;
 }
 
-std::pair<float, float> fromStandardRange(const std::pair<float, float> &point, int max_x ,int max_y) {
+std::pair<float, float> from_standard_range(const std::pair<float, float> &point, int max_x ,int max_y) {
     float x = point.first;
     float y = point.second;
 
